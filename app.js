@@ -12,8 +12,17 @@ const marketingRoutes = require('./routes/marketing');
 
 const app = express();
 
+// CORS 配置
+const corsOptions = {
+  origin: process.env.CORS_ORIGIN || 'https://jewelry-shop-client.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
+  maxAge: 86400 // 预检请求缓存24小时
+};
+
 // 中间件配置
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(helmet());
 app.use(compression());
 app.use(morgan('dev'));
@@ -40,7 +49,7 @@ app.use((err, req, res, next) => {
 
 // 404处理
 app.use((req, res) => {
-  res.status(404).json({ message: '请求���资源不存在' });
+  res.status(404).json({ message: '请求的资源不存在' });
 });
 
 module.exports = app; 
