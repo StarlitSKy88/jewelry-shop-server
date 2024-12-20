@@ -2,14 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "server.js",
+      "src": "./server.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "server.js",
+      "dest": "./server.js",
       "headers": {
         "Access-Control-Allow-Origin": "https://jewelry-shop-client-delta.vercel.app",
         "Access-Control-Allow-Methods": "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
@@ -19,17 +19,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "server.js"
+      "dest": "./server.js"
     }
-  ],
-  "env": {
-    "NODE_ENV": "production",
-    "DB_HOST": "mysql.sqlpub.com",
-    "DB_PORT": "3306",
-    "DB_USER": "dianshang",
-    "DB_PASSWORD": "bU8xhiTcnRzalKAT",
-    "DB_DATABASE": "dianshang",
-    "JWT_SECRET": "your-jwt-secret-key",
-    "CORS_ORIGIN": "https://jewelry-shop-client-delta.vercel.app"
-  }
+  ]
 } 
