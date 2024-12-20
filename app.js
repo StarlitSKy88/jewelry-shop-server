@@ -14,7 +14,7 @@ const app = express();
 
 // CORS 配置
 const corsOptions = {
-  origin: process.env.CORS_ORIGIN || 'https://jewelry-shop-client.vercel.app',
+  origin: process.env.CORS_ORIGIN || 'https://jewelry-shop-client-delta.vercel.app',
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
